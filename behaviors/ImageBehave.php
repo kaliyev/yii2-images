@@ -300,7 +300,12 @@ class ImageBehave extends Behavior
         if (preg_match('@\.@', $fileToRemove) and is_file($fileToRemove)) {
             unlink($fileToRemove);
         }
+        if ($img->isMain == 1) $wasMain = true;
         $img->delete();
+        if ($wasMain) {
+            $firstImage = $this->getImage();
+            if ($firstImage != null) $this->setMainImage($firstImage);
+        }
         return true;
     }
 
