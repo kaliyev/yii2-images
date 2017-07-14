@@ -193,7 +193,7 @@ class ImageBehave extends Behavior
      * returns main model image
      * @return array|null|ActiveRecord
      */
-    public function getImage()
+    public function getMainImage()
     {
         if ($this->getModule()->className === null) {
             $imageQuery = Image::find();
@@ -204,6 +204,30 @@ class ImageBehave extends Behavior
         $finder = $this->getImagesFinder(['isMain' => 1]);
         $imageQuery->where($finder);
         $imageQuery->orderBy(['isMain' => SORT_DESC, 'id' => SORT_ASC]);
+
+        $img = $imageQuery->one();
+        if(!$img){
+            return $this->getModule()->getPlaceHolder();
+        }
+
+        return $img;
+    }
+    
+    /**
+     * returns first model image
+     * @return array|null|ActiveRecord
+     */
+    public function getImage()
+    {
+        if ($this->getModule()->className === null) {
+            $imageQuery = Image::find();
+        } else {
+            $class = $this->getModule()->className;
+            $imageQuery = $class::find();
+        }
+        $finder = $this->getImagesFinder();
+        $imageQuery->where($finder);
+        $imageQuery->orderBy(['id' => SORT_ASC]);
 
         $img = $imageQuery->one();
         if(!$img){
