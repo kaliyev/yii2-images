@@ -6,24 +6,24 @@
  * Time: 15:35
  */
 
-namespace rico\yii2images\controllers;
+namespace kaliyev\yii2images\controllers;
 
 use yii\web\Controller;
 use yii;
-use rico\yii2images\models\Image;
-use \rico\yii2images\ModuleTrait;
+use kaliyev\yii2images\models\Image;
+use \kaliyev\yii2images\ModuleTrait;
 
 class ImagesController extends Controller
 {
     use ModuleTrait;
     public function actionIndex()
     {
-        echo "Hello, man. It's ok, dont worry.";
+        echo "";
     }
 
     public function actionTestTest()
     {
-        echo "Hello, man. It's ok, dont worry.";
+        echo "";
     }
 
 
