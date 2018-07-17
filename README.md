@@ -109,7 +109,7 @@ Installation
     <pre>
        {
             "require": {
-                "costa-rico/yii2-images": "dev-master"
+                "kaliyev/yii2-images": "dev-master"
             }
        }
     </pre>
@@ -120,14 +120,14 @@ Installation
 
 3. run migrate
     <pre>
-    php yii migrate/up --migrationPath=@vendor/costa-rico/yii2-images/migrations
+    php yii migrate/up --migrationPath=@vendor/kaliyev/yii2-images/migrations
     </pre>
 
 4. setup module
     ```php
     'modules' => [
             'yii2images' => [
-                'class' => 'rico\yii2images\Module',
+                'class' => 'kaliyev\yii2images\Module',
                 //be sure, that permissions ok 
                 //if you cant avoid permission errors you have to create "images" folder in web root manually and set 777 permissions
                 'imagesStorePath' => 'images/store', //path to origin images
@@ -144,7 +144,7 @@ Installation
         {
             return [
                 'image' => [
-                    'class' => 'rico\yii2images\behaviors\ImageBehave',
+                    'class' => 'kaliyev\yii2images\behaviors\ImageBehave',
                 ]
             ];
         }
